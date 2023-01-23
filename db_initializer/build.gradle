@@ -1,0 +1,27 @@
+plugins {
+  id 'java'
+}
+
+//version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+group = 'com'
+jar.baseName = 'db_initializer'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.yaml:snakeyaml:1.17'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+jar {
+  manifest {
+    attributes "Main-Class": "com.dbinitializer.App"
+  }
+  from {
+    configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+  }
+}

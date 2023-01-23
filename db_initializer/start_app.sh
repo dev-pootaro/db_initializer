@@ -1,0 +1,1 @@
+java -jar build/libs/db_initializer.jar

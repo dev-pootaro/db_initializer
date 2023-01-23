@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db_initializer:
+    build: ./java
+    container_name: db_initializer
+    volumes:
+      - ../db_initializer:/workspace
+    env_file: .env
+    stdin_open: true
+    tty: true
